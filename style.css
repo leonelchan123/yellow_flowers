@@ -1,0 +1,317 @@
+body {
+  background-color: #7dc5ff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.title {
+  color: #8300b3;
+  font-size: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.bouquet {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.flower {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: pulsate 3s infinite;
+  opacity: 0;
+}
+
+.flower:nth-child(1) {
+  animation: pulsate 3s infinite, fadeInFlower 1s ease-in 0.2s forwards, moveFlower1 1.5s ease-in-out 1s forwards;
+  z-index: 5;
+}
+
+.flower:nth-child(2) {
+  animation: pulsate 3.2s infinite, fadeInFlower 1s ease-in 0.4s forwards, moveFlower2 1.5s ease-in-out 1.2s forwards;
+  z-index: 4;
+}
+
+.flower:nth-child(3) {
+  animation: pulsate 3.4s infinite, fadeInFlower 1s ease-in 0.6s forwards, moveFlower3 1.5s ease-in-out 1.4s forwards;
+  z-index: 3;
+}
+
+.flower:nth-child(4) {
+  animation: pulsate 3.6s infinite, fadeInFlower 1s ease-in 0.8s forwards, moveFlower4 1.5s ease-in-out 1.6s forwards;
+  z-index: 2;
+}
+
+.flower:nth-child(5) {
+  animation: pulsate 3.8s infinite, fadeInFlower 1s ease-in 1s forwards, moveFlower5 1.5s ease-in-out 1.8s forwards;
+  z-index: 1;
+}
+
+.mid {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000, #662b09, #000);
+  z-index: 4;
+  background-size: 5px 5px;
+  filter: drop-shadow(0 0 8px #682600);
+}
+
+.Petal1 {
+  position: absolute;
+  left: 40px;
+  z-index: 3;
+  width: 120px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #ffea06);
+  filter: drop-shadow(0 0 5px #e05200);
+}
+
+.Petal1.p1 {
+  transform: rotate(22.5deg);
+}
+
+.Petal1.p2 {
+  transform: rotate(67.5deg);
+}
+
+.Petal1.p3 {
+  transform: rotate(110.5deg);
+}
+
+.Petal1.p4 {
+  transform: rotate(157.5deg);
+}
+
+.Petal2 {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 200px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #ffea06);
+  filter: drop-shadow(0 0 5px #e05200);
+}
+
+.Petal2.p1 {
+}
+
+.Petal2.p2 {
+  transform: rotate(90deg);
+}
+
+.Petal2.p3 {
+  transform: rotate(45deg);
+}
+
+.Petal2.p4 {
+  transform: rotate(135deg);
+}
+
+.Petal3 {
+  position: absolute;
+  left: 0px;
+  z-index: 1;
+  width: 200px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff5e00, #ffea06);
+  filter: drop-shadow(0 0 2px #ffea06);
+}
+
+.Petal3.p1 {
+  transform: rotate(22.5deg);
+}
+
+.Petal3.p2 {
+  transform: rotate(67.5deg);
+}
+
+.Petal3.p3 {
+  transform: rotate(110.5deg);
+}
+
+.Petal3.p4 {
+  transform: rotate(157.5deg);
+}
+
+.message {
+  color: #8300b3;
+  font-size: 25px;
+  margin-top: 80px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out 2.5s both, float 3s ease-in-out infinite;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Mariposas volando */
+.butterfly {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FFD700" d="M50 15 C70 0 90 20 70 40 C90 60 70 80 50 65 C30 80 10 60 30 40 C10 20 30 0 50 15 Z"/></svg>') no-repeat center/contain;
+  opacity: 0;
+  animation: flyAround 15s linear infinite;
+}
+
+.butterfly:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+  animation: flyAround 15s linear 3s infinite, fadeIn 1s ease-in 3s forwards;
+}
+
+.butterfly:nth-child(2) {
+  top: 30%;
+  right: 25%;
+  animation-delay: 2s;
+  animation: flyAround 18s linear 4s infinite, fadeIn 1s ease-in 4s forwards;
+}
+
+.butterfly:nth-child(3) {
+  bottom: 25%;
+  left: 35%;
+  animation-delay: 4s;
+  animation: flyAround 20s linear 5s infinite, fadeIn 1s ease-in 5s forwards;
+}
+
+/* Pétalos cayendo */
+.falling-petal {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  background: radial-gradient(circle, #ff9d00, #ffea06);
+  border-radius: 50%;
+  animation: fallDown 10s linear infinite;
+  opacity: 0;
+}
+
+/* Animaciones */
+@keyframes pulsate {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFlower {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveFlower1 {
+  to {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes moveFlower2 {
+  to {
+    transform: translateX(-80px) translateY(30px) scale(0.9) rotate(-5deg);
+  }
+}
+
+@keyframes moveFlower3 {
+  to {
+    transform: translateX(80px) translateY(40px) scale(0.85) rotate(8deg);
+  }
+}
+
+@keyframes moveFlower4 {
+  to {
+    transform: translateX(-50px) translateY(-50px) scale(0.8) rotate(-10deg);
+  }
+}
+
+@keyframes moveFlower5 {
+  to {
+    transform: translateX(60px) translateY(-40px) scale(0.75) rotate(15deg);
+  }
+}
+
+@keyframes flyAround {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(100px, 50px) rotate(45deg);
+  }
+  50% {
+    transform: translate(50px, 100px) rotate(90deg);
+  }
+  75% {
+    transform: translate(-50px, 50px) rotate(135deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(180deg);
+  }
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
