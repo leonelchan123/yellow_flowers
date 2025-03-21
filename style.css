@@ -1,20 +1,24 @@
 body {
   background-color: #7dc5ff;
   margin: 0;
-  padding: 0;
-  height: 100vh;
+  padding: 0 15px; /* Añadimos padding horizontal */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: hidden; /* Permitimos scroll vertical pero no horizontal */
+  overflow-y: auto;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .title {
   color: #8300b3;
-  font-size: 30px;
-  margin-bottom: 40px;
+  font-size: 24px; /* Texto más pequeño para móviles */
+  margin: 40px 0;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   animation: fadeIn 2s ease-in-out, float 3s ease-in-out infinite;
   z-index: 10;
@@ -24,7 +28,8 @@ body {
 .bouquet {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 400px; /* Altura menor para dispositivos móviles */
+  margin: 20px 0;
   display: flex;
   justify-content: center;
   perspective: 1000px;
@@ -159,8 +164,11 @@ body {
 
 .message {
   color: #8300b3;
-  font-size: 25px;
-  margin-top: 80px;
+  font-size: 18px; /* Texto más pequeño para móviles */
+  margin: 20px 0 60px 0; /* Margen inferior mayor para asegurar espacio */
+  padding: 0 15px;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   animation: fadeIn 2s ease-in-out 2.5s both, float 3s ease-in-out infinite;
   z-index: 10;
@@ -207,6 +215,54 @@ body {
   border-radius: 50%;
   animation: fallDown 10s linear infinite;
   opacity: 0;
+}
+
+/* Media queries para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .flower {
+    transform-origin: center;
+    scale: 0.8; /* Flores más pequeñas en móviles */
+  }
+  
+  .flower:nth-child(2) {
+    animation: pulsate 3.2s infinite, fadeInFlower 1s ease-in 0.4s forwards, moveFlower2Mobile 1.5s ease-in-out 1.2s forwards;
+  }
+  
+  .flower:nth-child(3) {
+    animation: pulsate 3.4s infinite, fadeInFlower 1s ease-in 0.6s forwards, moveFlower3Mobile 1.5s ease-in-out 1.4s forwards;
+  }
+  
+  .flower:nth-child(4) {
+    animation: pulsate 3.6s infinite, fadeInFlower 1s ease-in 0.8s forwards, moveFlower4Mobile 1.5s ease-in-out 1.6s forwards;
+  }
+  
+  .flower:nth-child(5) {
+    animation: pulsate 3.8s infinite, fadeInFlower 1s ease-in 1s forwards, moveFlower5Mobile 1.5s ease-in-out 1.8s forwards;
+  }
+}
+
+@keyframes moveFlower2Mobile {
+  to {
+    transform: translateX(-50px) translateY(20px) scale(0.8) rotate(-5deg);
+  }
+}
+
+@keyframes moveFlower3Mobile {
+  to {
+    transform: translateX(50px) translateY(25px) scale(0.75) rotate(8deg);
+  }
+}
+
+@keyframes moveFlower4Mobile {
+  to {
+    transform: translateX(-30px) translateY(-30px) scale(0.7) rotate(-10deg);
+  }
+}
+
+@keyframes moveFlower5Mobile {
+  to {
+    transform: translateX(40px) translateY(-25px) scale(0.65) rotate(15deg);
+  }
 }
 
 /* Animaciones */
